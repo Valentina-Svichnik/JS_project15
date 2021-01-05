@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="((workers.length > 0)&&(( workers | myfilter: searchStr).length > 0))">
     <div class="row" *ngIf="workers.length > 0">
         <div class="col-12">
             <h5>{{title}}</h5>
@@ -17,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let worker of workers" [formGroup]="editForm">
+      <tr *ngFor="let worker of workers | myfilter: searchStr" [formGroup]="editForm">  <!--  myfilter should be here -->
         <th scope="row">{{worker.id}}</th>
         <td>{{worker.name}}
             <input 

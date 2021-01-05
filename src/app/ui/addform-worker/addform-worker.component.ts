@@ -39,6 +39,8 @@ export class AddformWorkerComponent implements OnInit {
         phone: this.myForm.value.phone
       };
       this.addWorker.emit(worker);  
+      
+      console.log(this.myForm.value.name);
     } catch (err) {
       console.error(err);
     }

@@ -11,6 +11,8 @@ export class AppComponent implements OnInit {
   title = 'Список сотрудников';
   workers: MyWorker[] = [];
   MyWorkerType = MyWorkerType;
+  searchStr = '';
+  
 
   constructor(private HttpWorkersService: HttpWorkersService) { }
 
@@ -68,5 +70,9 @@ export class AppComponent implements OnInit {
       } finally {
         this.getData();
       }
+  }
+
+  onSearchWorker(search: string) {
+    this.searchStr = search;
   }
 }

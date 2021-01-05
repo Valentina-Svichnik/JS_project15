@@ -11,6 +11,7 @@ export class TableWorkersComponent implements OnInit {
 
   @Input() title: string;
   @Input() workers: MyWorker[] = [];
+  @Input() searchStr: string;
   @Output() deleteWorker = new EventEmitter<number>();
   @Output() editWorker = new EventEmitter<number>();
   @Output() saveWorker = new EventEmitter();
@@ -24,6 +25,7 @@ export class TableWorkersComponent implements OnInit {
     'editPhone': new FormControl('', Validators.pattern('[0-9]{10}')),
   });
 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -35,7 +37,6 @@ export class TableWorkersComponent implements OnInit {
 
   onEditWorker(id: number) {
     let form = document.getElementsByClassName(String(id));
-    // this.editWorker.emit(id);
     form[0].classList.add("display-block");
     form[1].classList.add("display-block");
     form[2].classList.add("display-block");
